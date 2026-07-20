@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-COSMKIT_REPO="${COSMKIT_REPO:-YOUR_USERNAME/cosmkit}"
+COSMKIT_REPO="${COSMKIT_REPO:-name-is-hai/cosmkit}"
 COSMKIT_BRANCH="${COSMKIT_BRANCH:-master}"
 COSMKIT_HOME="${COSMKIT_HOME:-$HOME/.local/share/cosmkit}"
 
@@ -52,11 +52,16 @@ else
     "$COSMKIT_HOME"
 fi
 
-# mkdir -p "$HOME/.local/bin"
-#
-# for cmd in "$COSMKIT_HOME"/bin/cosmkit-*; do
-#   [[ -f "$cmd" ]] || continue
-#   ln -snf "$cmd" "$HOME/.local/bin/$(basename "$cmd")"
-# done
-source "$COSMKIT_HOME/bin/cosmkit-setup"
-log_ok "cosmkit installed."
+log_info "Starting full cosmkit setup..."
+
+source "$COSMKIT_DIR/bin/cosmkit-setup-environment"
+source "$COSMKIT_DIR/bin/cosmkit-setup-repos"
+source "$COSMKIT_DIR/bin/cosmkit-setup-layer" full
+source "$COSMKIT_DIR/bin/cosmkit-setup-flatpak"
+source "$COSMKIT_DIR/bin/cosmkit-setup-git"
+source "$COSMKIT_DIR/bin/cosmkit-setup-ghostty"
+source "$COSMKIT_DIR/bin/cosmkit-setup-fonts"
+source "$COSMKIT_DIR/bin/cosmkit-setup-cosmic"
+
+log_warn "Reboot if rpm-ostree changed your deployment."
+log_ok "cosmkit setup finished."
