@@ -49,7 +49,36 @@ setup_toolbox_terminfo() {
   log_ok "Toolbox terminfo setup finished: $name"
 }
 
-setup_mise_packages() {
+setup_mise() {
+  local name="$1"
+
+  log_info "Setting up nvim inside toolbox: $name"
+
+  toolbox run --container "$name" env COSMKIT_DIR="$COSMKIT_DIR" bash -lc '
+    set -euo pipefail
+
+    source "$COSMKIT_DIR/bin/cosmkit-setup-mise"
+  '
+
+  log_ok "Toolbox nvim configured: $name"
+}
+
+
+setup_nvim() {
+  local name="$1"
+
+  log_info "Setting up nvim inside toolbox: $name"
+
+  toolbox run --container "$name" env COSMKIT_DIR="$COSMKIT_DIR" bash -lc '
+    set -euo pipefail
+
+    source "$COSMKIT_DIR/bin/cosmkit-setup-nvim"
+  '
+
+  log_ok "Toolbox nvim configured: $name"
+}
+
+setup_mise_repo() {
   local name="$1"
 
   log_info "Setting up mise repos inside toolbox: $name"
@@ -64,7 +93,6 @@ setup_mise_packages() {
 
     sudo dnf makecache
   '
-  "$COSMKIT_DIR/bin/cosmkit-setup-mise"
 
   log_ok "Toolbox mise packages management configured: $name"
 }
@@ -73,9 +101,7 @@ install_toolbox_packages() {
   local name="$1"
   local file="$2"
 
-  create_toolbox_if_missing "$name"
-  setup_toolbox_terminfo "$name"
-  setup_mise_packages "$name"
+  setup_mise_repo "$name"
 
   mapfile -t packages < <(read_packages "$file")
 
@@ -96,8 +122,8 @@ install_toolbox_packages() {
 setup_dev_toolbox() {
   local name="${1:-dev}"
 
+  create_toolbox_if_missing "$name"
+  setup_toolbox_terminfo "$name"
   install_toolbox_packages "$name" "$COSMKIT_DIR/packages/toolbox.packages"
-
-  "$COSMKIT_DIR/bin/cosmkit-setup-nvim"
-
+  setup_mise "$name"
 }
