@@ -24,7 +24,6 @@ case "${1:-host}" in
     layer_host_packages
     layer_input_packages
     layer_nvidia_packages
-    layer_extra_packages
     ;;
   *)
     die "Usage: cosmkit-layer [host|input|nvidia|all|full]"

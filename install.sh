@@ -58,7 +58,5 @@ fi
 #   [[ -f "$cmd" ]] || continue
 #   ln -snf "$cmd" "$HOME/.local/bin/$(basename "$cmd")"
 # done
-
+source "$COSMKIT_HOME/bin/cosmkit-setup"
 log_ok "cosmkit installed."
-# log_info "Make sure ~/.local/bin is in your PATH."
-log_info "Run: cosmkit-setup"
