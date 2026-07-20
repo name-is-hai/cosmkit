@@ -28,6 +28,27 @@ create_toolbox_if_missing() {
   fi
 }
 
+setup_toolbox_terminfo() {
+  local name="$1"
+
+  log_info "Setting up Ghostty terminfo inside toolbox: $name"
+
+  toolbox run --container "$name" bash -lc '
+    set -euo pipefail
+
+    mkdir -p "$HOME/.terminfo/x"
+
+    if [[ -f /run/host/usr/share/terminfo/x/xterm-ghostty ]]; then
+      cp /run/host/usr/share/terminfo/x/xterm-ghostty "$HOME/.terminfo/x/"
+      echo "Installed xterm-ghostty terminfo"
+    else
+      echo "Host xterm-ghostty terminfo not found, skipping"
+    fi
+  '
+
+  log_ok "Toolbox terminfo setup finished: $name"
+}
+
 setup_mise_packages() {
   local name="$1"
 
@@ -53,6 +74,7 @@ install_toolbox_packages() {
   local file="$2"
 
   create_toolbox_if_missing "$name"
+  setup_toolbox_terminfo "$name"
   setup_mise_packages "$name"
 
   mapfile -t packages < <(read_packages "$file")
@@ -75,4 +97,7 @@ setup_dev_toolbox() {
   local name="${1:-dev}"
 
   install_toolbox_packages "$name" "$COSMKIT_DIR/packages/toolbox.packages"
+
+  "$COSMKIT_DIR/bin/cosmkit-setup-nvim"
+
 }
