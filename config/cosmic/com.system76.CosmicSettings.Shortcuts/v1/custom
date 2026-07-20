@@ -1,0 +1,13 @@
+{
+    (
+        modifiers: [
+            Super,
+        ],
+    ): System(Launcher),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "space",
+    ): Disable,
+}

@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+COSMKIT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+source "$COSMKIT_DIR/scripts/lib/common.sh"
+source "$COSMKIT_DIR/scripts/steps/layer.sh"
+
+case "${1:-host}" in
+  host)
+    layer_host_packages
+    ;;
+  input)
+    layer_input_packages
+    ;;
+  nvidia)
+    layer_nvidia_packages
+    ;;
+  all)
+    layer_host_packages
+    layer_input_packages
+    ;;
+  full)
+    layer_host_packages
+    layer_input_packages
+    layer_nvidia_packages
+    layer_extra_packages
+    ;;
+  *)
+    die "Usage: cosmkit-layer [host|input|nvidia|all|full]"
+    ;;
+esac

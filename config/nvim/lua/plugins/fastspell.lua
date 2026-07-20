@@ -1,0 +1,3 @@
+return {
+  "lucaSartore/fastspell.nvim",
+}

@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+COSMKIT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+source "$COSMKIT_DIR/scripts/lib/common.sh"
+source "$COSMKIT_DIR/scripts/steps/repos.sh"
+
+case "${1:-all}" in
+  all)
+    setup_repos
+    ;;
+  rpmfusion)
+    setup_rpmfusion_repos
+    ;;
+  ghostty)
+    setup_ghostty_repo
+    ;;
+  warp)
+    setup_cloudflare_warp_repo
+    ;;
+  starship)
+    setup_starship_repo
+    ;;
+  mise)
+    setup_mise_repo
+    ;;
+  *)
+    die "Usage: cosmkit-repos [all|rpmfusion|ghostty|warp|starship|mise]"
+    ;;
+esac

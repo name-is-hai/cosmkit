@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+COSMKIT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+source "$COSMKIT_DIR/scripts/lib/common.sh"
+source "$COSMKIT_DIR/scripts/steps/toolbox.sh"
+
+case "${1:-dev}" in
+  dev)
+    setup_dev_toolbox dev
+    ;;
+  *)
+    setup_dev_toolbox "$1"
+    ;;
+esac
