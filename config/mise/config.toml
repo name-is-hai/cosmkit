@@ -1,0 +1,13 @@
+[tools]
+trivy = "latest"
+"github:jesseduffield/lazygit" = "latest"
+"github:jesseduffield/lazydocker" = "latest"
+docker-compose = "latest"
+docker-cli = "latest"
+prek = "latest"
+packer = "latest"
+pipx = "latest"
+starship = "latest"
+codex = "latest"
+opencode = "latest"
+agy = "latest"

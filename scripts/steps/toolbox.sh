@@ -28,10 +28,10 @@ create_toolbox_if_missing() {
   fi
 }
 
-setup_toolbox_repos() {
+setup_mise_packages() {
   local name="$1"
 
-  log_info "Setting up mise/starship repos inside toolbox: $name"
+  log_info "Setting up mise repos inside toolbox: $name"
 
   toolbox run --container "$name" env COSMKIT_DIR="$COSMKIT_DIR" bash -lc '
     set -euo pipefail
@@ -40,13 +40,12 @@ setup_toolbox_repos() {
     source "$COSMKIT_DIR/scripts/steps/repos.sh"
 
     setup_mise_repo
-    setup_lazygit_repo
-    setup_starship_repo
 
     sudo dnf makecache
   '
+  "$COSMKIT_DIR/bin/cosmkit-setup-mise"
 
-  log_ok "Toolbox repos configured: $name"
+  log_ok "Toolbox mise packages management configured: $name"
 }
 
 install_toolbox_packages() {
@@ -54,7 +53,7 @@ install_toolbox_packages() {
   local file="$2"
 
   create_toolbox_if_missing "$name"
-  setup_toolbox_repos "$name"
+  setup_mise_packages "$name"
 
   mapfile -t packages < <(read_packages "$file")
 

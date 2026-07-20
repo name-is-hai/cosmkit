@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+COSMKIT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+source "$COSMKIT_DIR/scripts/lib/common.sh"
+source "$COSMKIT_DIR/scripts/lib/symlink.sh"
+
+link_path "$COSMKIT_DIR/config/mise" "$HOME/.config/mise"
+
+if command -v mise >/dev/null 2>&1; then
+  mise install
+  log_ok "Installed all packages needed"
+fi
