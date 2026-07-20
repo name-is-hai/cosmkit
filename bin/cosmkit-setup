@@ -12,9 +12,7 @@ cosmkit-setup-repos
 cosmkit-setup-layer full
 cosmkit-setup-flatpak
 cosmkit-setup-git
-cosmkit-setup-shell
 cosmkit-setup-ghostty 
-cosmkit-setup-zsh
 cosmkit-setup-fonts
 cosmkit-setup-cosmic
 
