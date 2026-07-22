@@ -1,21 +1,7 @@
-path_prepend() {
-  [[ -d "$1" ]] || return
-  case ":$PATH:" in
-    *":$1:"*) ;;
-    *) export PATH="$1:$PATH" ;;
-  esac
-}
+set -a
 
-path_append() {
-  [[ -d "$1" ]] || return
-  case ":$PATH:" in
-    *":$1:"*) ;;
-    *) export PATH="$PATH:$1" ;;
-  esac
-}
+for env_file in "$HOME"/.config/environment.d/*.conf(N); do
+  [[ -r "$env_file" ]] && source "$env_file"
+done
 
-path_prepend "${COSMKIT_HOME}/bin"
-path_prepend "${HOME}/.local/bin"
-
-unset -f path_prepend
-unset -f path_append
+set +a
