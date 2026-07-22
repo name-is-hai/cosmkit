@@ -14,4 +14,3 @@ vim.opt.updatetime = 50
 
 vim.opt.incsearch = true
 vim.opt.hlsearch = false
-

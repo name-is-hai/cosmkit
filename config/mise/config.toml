@@ -17,5 +17,4 @@ zoxide = "latest"
 bat = "latest"
 eza = "latest"
 ripgrep = "latest"
-neovim = "latest"
 
