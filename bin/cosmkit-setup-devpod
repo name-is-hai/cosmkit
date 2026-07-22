@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+COSMKIT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+source "$COSMKIT_DIR/scripts/lib/common.sh"
+
+project_path="${1:-$PWD}"
+
+if ! command -v devpod >/dev/null 2>&1; then
+  die "devpod not found. Run: cosmkit-setup-devpod"
+fi
+
+log_info "Starting DevPod workspace for: $project_path"
+
+devpod up "$project_path"

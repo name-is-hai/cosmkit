@@ -19,13 +19,10 @@ case "${1:-all}" in
   warp)
     setup_cloudflare_warp_repo
     ;;
-  starship)
-    setup_starship_repo
-    ;;
   mise)
     setup_mise_repo
     ;;
   *)
-    die "Usage: cosmkit-repos [all|rpmfusion|ghostty|warp|starship|mise]"
+    die "Usage: cosmkit-repos [all|rpmfusion|ghostty|warp|mise]"
     ;;
 esac

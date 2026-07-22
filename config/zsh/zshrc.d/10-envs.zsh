@@ -15,6 +15,7 @@ path_append() {
 }
 
 path_prepend "${COSMKIT_HOME}/bin"
+path_prepend "${HOME}/.local/bin"
 
 unset -f path_prepend
 unset -f path_append

@@ -81,14 +81,3 @@ frg() {
   "${EDITOR:-nvim}" "+$line" "$file"
 }
 
-#
-# # Update cosmkit if installed
-# cosmkit-refresh() {
-#   if command -v cosmkit-update >/dev/null 2>&1; then
-#     cosmkit-update
-#     cosmkit-link
-#   else
-#     echo "cosmkit not found"
-#     return 1
-#   fi
-# }

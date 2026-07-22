@@ -10,7 +10,7 @@ if command -v bat >/dev/null 2>&1; then
   alias cat='bat'
 fi
 
-if command -v bat >/dev/null 2>&1; then
+if command -v btop >/dev/null 2>&1; then
   alias top='btop'
 fi
 
