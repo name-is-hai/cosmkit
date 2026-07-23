@@ -29,13 +29,13 @@ layer_package_file() {
 }
 
 layer_host_packages() {
-  layer_package_file "$COSMKIT_DIR/packages/host.packages"
+  layer_package_file "$COSMKIT_HOME/packages/host.packages"
 }
 
 layer_input_packages() {
-  layer_package_file "$COSMKIT_DIR/packages/input.packages"
+  layer_package_file "$COSMKIT_HOME/packages/input.packages"
 }
 
 layer_nvidia_packages() {
-  layer_package_file "$COSMKIT_DIR/packages/nvidia.packages"
+  layer_package_file "$COSMKIT_HOME/packages/nvidia.packages"
 }

@@ -29,3 +29,9 @@
 [user]
 	email = 90458368+name-is-hai@users.noreply.github.com
 	name = name-is-hai
+[credential "https://github.com"]
+	helper = 
+	helper = !/var/home/liam/.local/share/mise/installs/gh/2.96.0/gh_2.96.0_linux_amd64/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/var/home/liam/.local/share/mise/installs/gh/2.96.0/gh_2.96.0_linux_amd64/bin/gh auth git-credential

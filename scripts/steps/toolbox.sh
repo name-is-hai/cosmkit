@@ -54,10 +54,10 @@ setup_mise() {
 
   log_info "Setting up nvim inside toolbox: $name"
 
-  toolbox run --container "$name" env COSMKIT_DIR="$COSMKIT_DIR" bash -lc '
+  toolbox run --container "$name" env COSMKIT_HOME="$COSMKIT_HOME" bash -lc '
     set -euo pipefail
 
-    source "$COSMKIT_DIR/bin/cosmkit-setup-mise"
+    source "$COSMKIT_HOME/bin/cosmkit-setup-mise"
   '
 
   log_ok "Toolbox nvim configured: $name"
@@ -69,10 +69,10 @@ setup_nvim() {
 
   log_info "Setting up nvim inside toolbox: $name"
 
-  toolbox run --container "$name" env COSMKIT_DIR="$COSMKIT_DIR" bash -lc '
+  toolbox run --container "$name" env COSMKIT_HOME="$COSMKIT_HOME" bash -lc '
     set -euo pipefail
 
-    source "$COSMKIT_DIR/bin/cosmkit-setup-nvim"
+    source "$COSMKIT_HOME/bin/cosmkit-setup-nvim"
   '
 
   log_ok "Toolbox nvim configured: $name"
@@ -83,11 +83,11 @@ setup_mise_repo() {
 
   log_info "Setting up mise repos inside toolbox: $name"
 
-  toolbox run --container "$name" env COSMKIT_DIR="$COSMKIT_DIR" bash -lc '
+  toolbox run --container "$name" env COSMKIT_HOME="$COSMKIT_HOME" bash -lc '
     set -euo pipefail
 
-    source "$COSMKIT_DIR/scripts/lib/common.sh"
-    source "$COSMKIT_DIR/scripts/steps/repos.sh"
+    source "$COSMKIT_HOME/scripts/lib/common.sh"
+    source "$COSMKIT_HOME/scripts/steps/repos.sh"
 
     setup_mise_repo
 
@@ -124,6 +124,6 @@ setup_dev_toolbox() {
 
   create_toolbox_if_missing "$name"
   setup_toolbox_terminfo "$name"
-  install_toolbox_packages "$name" "$COSMKIT_DIR/packages/toolbox.packages"
+  install_toolbox_packages "$name" "$COSMKIT_HOME/packages/toolbox.packages"
   setup_mise "$name"
 }

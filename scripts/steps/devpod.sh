@@ -35,8 +35,8 @@ setup_devpod_podman_provider() {
 setup_gcr_ssh_agent() {
   log_info "Setting up GCR SSH agent..."
 
-  if ! rpm -q gcr4 >/dev/null 2>&1; then
-    die "gcr4 package is not installed."
+  if ! rpm -q gcr >/dev/null 2>&1; then
+    die "gcr package is not installed."
   fi
 
   if systemctl --user list-unit-files | grep -q '^gcr-ssh-agent.socket'; then
@@ -45,7 +45,7 @@ setup_gcr_ssh_agent() {
     log_ok "gcr-ssh-agent.socket enabled."
   else
     log_warn "gcr-ssh-agent.socket was not found."
-    log_warn "Reboot if gcr4 was just installed, then rerun this script."
+    log_warn "Reboot if gcr was just installed, then rerun this script."
   fi
 
   log_info "Disabling custom ssh-agent.service if it exists..."

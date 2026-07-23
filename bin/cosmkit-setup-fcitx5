@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-COSMKIT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+COSMKIT_HOME="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-source "$COSMKIT_DIR/scripts/lib/common.sh"
-source "$COSMKIT_DIR/scripts/lib/symlink.sh"
+source "$COSMKIT_HOME/scripts/lib/common.sh"
+source "$COSMKIT_HOME/scripts/lib/symlink.sh"
 
-link_path "$COSMKIT_DIR/config/fcitx5" "$HOME/.config/fcitx5"
+link_path "$COSMKIT_HOME/config/fcitx5" "$HOME/.config/fcitx5"

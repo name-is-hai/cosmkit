@@ -9,7 +9,7 @@ install_flatpaks() {
     flathub \
     https://flathub.org/repo/flathub.flatpakrepo
 
-  local file="$COSMKIT_DIR/packages/flatpak.packages"
+  local file="$COSMKIT_HOME/packages/flatpak.packages"
 
   [[ -f "$file" ]] || die "Package file not found: $file"
 

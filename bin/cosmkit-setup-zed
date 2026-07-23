@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-COSMKIT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+COSMKIT_HOME="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-source "$COSMKIT_DIR/scripts/lib/common.sh"
-source "$COSMKIT_DIR/scripts/lib/symlink.sh"
-source "$COSMKIT_DIR/scripts/steps/zed.sh"
+source "$COSMKIT_HOME/scripts/lib/common.sh"
+source "$COSMKIT_HOME/scripts/lib/symlink.sh"
+source "$COSMKIT_HOME/scripts/steps/zed.sh"
 
 if command -v zed >/dev/null 2>&1; then
-  link_path "$COSMKIT_DIR/config/zed" "$HOME/.config/zed"
+  link_path "$COSMKIT_HOME/config/zed" "$HOME/.config/zed"
 else
   install_zed
-  link_path "$COSMKIT_DIR/config/zed" "$HOME/.config/zed"
+  link_path "$COSMKIT_HOME/config/zed" "$HOME/.config/zed"
 fi

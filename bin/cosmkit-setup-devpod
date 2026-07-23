@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-COSMKIT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+COSMKIT_HOME="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-source "$COSMKIT_DIR/scripts/lib/common.sh"
-source "$COSMKIT_DIR/scripts/steps/devpod.sh"
+source "$COSMKIT_HOME/scripts/lib/common.sh"
+source "$COSMKIT_HOME/scripts/steps/devpod.sh"
 
 setup_devpod

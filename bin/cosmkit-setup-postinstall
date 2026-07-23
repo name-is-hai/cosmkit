@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-COSMKIT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+COSMKIT_HOME="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-source "$COSMKIT_DIR/scripts/lib/common.sh"
+source "$COSMKIT_HOME/scripts/lib/common.sh"
 
 log_info "Running post-reboot setup..."
 
 cosmkit-setup-shell
 cosmkit-setup-zsh
+cosmkit-setup-devpod
+cosmkit-setup-layer nvidia
 
 log_ok "Post-reboot setup finished."
 log_info "Optional: run toolbox setup with: cosmkit-toolbox-setup dev"

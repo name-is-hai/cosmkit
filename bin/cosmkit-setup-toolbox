@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-COSMKIT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+COSMKIT_HOME="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-source "$COSMKIT_DIR/scripts/lib/common.sh"
-source "$COSMKIT_DIR/scripts/steps/toolbox.sh"
+source "$COSMKIT_HOME/scripts/lib/common.sh"
+source "$COSMKIT_HOME/scripts/steps/toolbox.sh"
 
 case "${1:-dev}" in
   dev)
