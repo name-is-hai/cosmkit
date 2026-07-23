@@ -67,6 +67,7 @@ source "$COSMKIT_DIR/bin/cosmkit-setup-fcitx5"
 source "$COSMKIT_DIR/bin/cosmkit-setup-mimeapps"
 source "$COSMKIT_DIR/bin/cosmkit-setup-zed"
 source "$COSMKIT_DIR/bin/cosmkit-setup-applications"
+source "$COSMKIT_DIR/bin/cosmkit-setup-devpod"
 
 log_warn "Reboot if rpm-ostree changed your deployment."
 log_ok "cosmkit setup finished."
