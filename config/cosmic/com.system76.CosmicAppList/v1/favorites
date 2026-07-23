@@ -1,8 +1,5 @@
 [
-    "org.mozilla.firefox",
+    "app.zen_browser.zen",
     "com.system76.CosmicFiles",
-    "com.system76.CosmicEdit",
     "com.mitchellh.ghostty",
-    "com.system76.CosmicStore",
-    "com.system76.CosmicSettings",
 ]

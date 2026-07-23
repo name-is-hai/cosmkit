@@ -1,5 +1,6 @@
 (
     workspace_mode: Global,
     workspace_layout: Horizontal,
-    action_on_typing: r#None,
+    action_on_typing: OpenLauncher,
+    workspace_wraparound: true,
 )

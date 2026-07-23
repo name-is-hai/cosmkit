@@ -3,7 +3,27 @@
         modifiers: [
             Super,
         ],
-    ): System(Launcher),
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "Escape",
+    ): System(Suspend),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "s",
+    ): System(Screenshot),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "Escape",
+    ): System(LockScreen),
     (
         modifiers: [
             Super,
