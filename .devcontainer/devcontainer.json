@@ -1,6 +1,6 @@
 {
   "name": "Cosmkit Development",
-  "image": "ghcr.io/name-is-hai/ubi9-dev:sha-140af29",
+  "image": "ghcr.io/name-is-hai/ubi9-dev:sha-8ad782b",
   "remoteUser": "dev",
   "updateRemoteUserUID": false,
   "workspaceFolder": "/workspaces/cosmkit",

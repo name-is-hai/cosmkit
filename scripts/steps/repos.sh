@@ -68,20 +68,6 @@ setup_mise_repo() {
   log_ok "mise COPR repo configured."
 }
 
-setup_lazygit_repo() {
-  require_cmd curl
-
-  log_info "Setting up mise COPR repo..."
-
-  source /etc/os-release
-
-  curl -fsSL \
-    "https://copr.fedorainfracloud.org/coprs/dejan/lazygit/repo/fedora-${VERSION_ID}/dejan-lazygit-fedora-${VERSION_ID}.repo" \
-    | sudo tee "/etc/yum.repos.d/mise.repo" >/dev/null
-
-  log_ok "mise COPR repo configured."
-}
-
 setup_repos() {
   setup_rpmfusion_repos
   setup_ghostty_repo

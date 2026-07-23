@@ -5,5 +5,11 @@ COSMKIT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 source "$COSMKIT_DIR/scripts/lib/common.sh"
 source "$COSMKIT_DIR/scripts/lib/symlink.sh"
+source "$COSMKIT_DIR/scripts/steps/zed.sh"
 
-link_path "$COSMKIT_DIR/config/zed" "$HOME/.var/app/dev.zed.Zed/config/zed"
+if command -v zed >/dev/null 2>&1; then
+  link_path "$COSMKIT_DIR/config/zed" "$HOME/.config/zed"
+else
+  install_zed
+  link_path "$COSMKIT_DIR/config/zed" "$HOME/.config/zed"
+fi

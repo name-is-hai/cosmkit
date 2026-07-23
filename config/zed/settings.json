@@ -7,6 +7,20 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "ssh_connections": [
+    {
+      "host": "cosmkit.devpod",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/workspaces/cosmkit"
+          ]
+        }
+      ]
+    }
+  ],
+  "use_podman": true,
   "telemetry": {
     "diagnostics": true,
     "metrics": false,
@@ -16,18 +30,6 @@
   "always_treat_brackets_as_autoclosed": true,
   "terminal": {
     "dock": "bottom",
-    "env": {
-      "LD_LIBRARY_PATH": "",
-      "LIBRARY_PATH": "",
-      "ZED_FLATPAK_LIB_PATH": "",
-      "GI_TYPELIB_PATH": "",
-      "GIO_EXTRA_MODULES": "",
-      "GSETTINGS_SCHEMA_DIR": "",
-      "FLATPAK_XDG_CACHE_HOME": "",
-      "FLATPAK_XDG_CONFIG_HOME": "",
-      "FLATPAK_XDG_DATA_HOME": "",
-      "FLATPAK_XDG_STATE_HOME": ""
-    }
   },
   "which_key": {
     "enabled": false

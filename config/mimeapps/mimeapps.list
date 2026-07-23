@@ -1,6 +1,0 @@
-
-[Default Applications]
-x-scheme-handler/http=zen-clean.desktop
-x-scheme-handler/https=zen-clean.desktop
-text/html=zen-clean.desktop
-application/xhtml+xml=zen-clean.desktop
