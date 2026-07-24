@@ -56,7 +56,7 @@ log_info "Starting full cosmkit setup..."
 
 source "$COSMKIT_HOME/bin/cosmkit-setup-environment"
 source "$COSMKIT_HOME/bin/cosmkit-setup-repos"
-source "$COSMKIT_HOME/bin/cosmkit-setup-layer" all
+source "$COSMKIT_HOME/bin/cosmkit-setup-layer" full
 source "$COSMKIT_HOME/bin/cosmkit-setup-flatpak"
 source "$COSMKIT_HOME/bin/cosmkit-setup-git"
 source "$COSMKIT_HOME/bin/cosmkit-setup-ghostty"
@@ -68,6 +68,10 @@ source "$COSMKIT_HOME/bin/cosmkit-setup-mimeapps"
 source "$COSMKIT_HOME/bin/cosmkit-setup-zed"
 source "$COSMKIT_HOME/bin/cosmkit-setup-nvim"
 source "$COSMKIT_HOME/bin/cosmkit-setup-applications"
+source "$COSMKIT_HOME/bin/cosmkit-setup-shell"
+source "$COSMKIT_HOME/bin/cosmkit-setup-zsh"
+source "$COSMKIT_HOME/bin/cosmkit-setup-devpod"
+
 
 log_warn "Reboot if rpm-ostree changed your deployment."
 log_ok "cosmkit setup finished."
