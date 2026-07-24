@@ -7,3 +7,4 @@ source "$COSMKIT_HOME/scripts/lib/common.sh"
 source "$COSMKIT_HOME/scripts/lib/symlink.sh"
 
 link_path "$COSMKIT_HOME/config/mimeapps/mimeapps.list" "$HOME/.config/mimeapps.list"
+link_path "$COSMKIT_HOME/config/mimeapps/cosmic-mimeapps.list" "$HOME/.config/cosmic-mimeapps.list"
