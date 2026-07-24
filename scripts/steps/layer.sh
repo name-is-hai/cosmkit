@@ -22,7 +22,7 @@ layer_package_file() {
     return
   fi
 
-  sudo rpm-ostree install "${packages[@]}"
+  sudo rpm-ostree install --idempotent --apply-live "${packages[@]}"
 
   log_ok "Layered packages from $file"
   log_warn "Reboot may be required."

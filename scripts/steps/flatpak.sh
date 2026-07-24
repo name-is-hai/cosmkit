@@ -21,7 +21,7 @@ install_flatpaks() {
   fi
 
   log_info "Installing Flatpak apps..."
-  flatpak install -y flathub "${apps[@]}"
+  flatpak install -y --or-update flathub "${apps[@]}"
 
   log_ok "Flatpak apps installed."
 }

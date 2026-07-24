@@ -8,8 +8,8 @@ install_fonts() {
   log_info "Installing JetBrainsMono Nerd Font..."
 
   local tmp_dir
-  tmp_dir="$(mktemp -d)"
-  trap 'rm -rf "$tmp_dir"' RETURN
+  tmp_dir="$(mktemp -d)" || return 1
+  trap "rm -rf '$tmp_dir'" RETURN
 
   mkdir -p "$HOME/.local/share/fonts"
 

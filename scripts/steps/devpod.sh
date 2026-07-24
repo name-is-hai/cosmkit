@@ -7,8 +7,8 @@ install_devpod_cli() {
   log_info "Installing DevPod CLI..."
 
   local tmp_dir
-  tmp_dir="$(mktemp -d)"
-  trap 'rm -rf "$tmp_dir"' RETURN
+  tmp_dir="$(mktemp -d)" || return 1
+  trap "rm -rf '$tmp_dir'" RETURN
 
   curl -L \
     -o "$tmp_dir/devpod" \
